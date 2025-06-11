@@ -1,6 +1,6 @@
 # Manipulator-MuJoCo-Env
 
-This repository provides a MuJoCo-based simulation environment for robotic manipulators, developed using the `MjSpec` interface. It is inspired by the original [Manipulator-MuJoCo](https://github.com/ian-chuang/Manipulator-Mujoco) project, but avoids the use of `dm_control`, offering a lighter and more flexible setup.
+This repository provides a MuJoCo-based simulation environment for robotic manipulators, developed using the `MjSpec` model construction and eliminate `dm_control` dependency. It is inspired by the original [Manipulator-MuJoCo](https://github.com/ian-chuang/Manipulator-Mujoco) project, but avoids the use of `dm_control`, offering a lighter and more flexible setup.
 
 ## Overview
 
