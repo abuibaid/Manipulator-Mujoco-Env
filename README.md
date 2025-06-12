@@ -29,7 +29,7 @@ To get started, follow these steps to install the repository:
 2. Navigate to the root directory of the repository:
 
    ```bash
-   cd Manipulator-Mujoco
+   cd Manipulator-Mujoco-Env
    ```
 
 3. Install the repository in editable mode:
