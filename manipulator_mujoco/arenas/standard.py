@@ -56,7 +56,7 @@ class StandardArena(object):
         self._robot_mount = None  # Where robot will be attached
         self._mocap_target = None
 
-    def attach_robot(self, robot_spec: mj.MjSpec, pos=[0, 0, 0], quat=[0.7071, 0, 0, -0.7071]):
+    def attach_robot(self, robot_spec: mj.MjSpec, pos=[0, 0,0], quat=[0.7071, 0, 0, -0.7071]):
         site = self._mjcf_model.worldbody.add_site(
         name="robot_attachment_site",
         pos=pos,

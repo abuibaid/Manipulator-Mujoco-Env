@@ -1,4 +1,5 @@
 mujoco
 numpy 
 gymnasium
+loop_rate_limiters
 

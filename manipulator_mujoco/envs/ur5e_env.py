@@ -11,6 +11,7 @@ from manipulator_mujoco.mocaps import Target
 from manipulator_mujoco.controllers import OperationalSpaceController
 from loop_rate_limiters import RateLimiter
 from manipulator_mujoco.mujoco.mujoco_utils_ import MujocoModelNames
+import pygments
 
 class UR5eEnv(gym.Env):
 
@@ -50,9 +51,11 @@ class UR5eEnv(gym.Env):
         self._arena.attach_robot(self._arm.mjcf_model,pos=[0, 0, 0], quat=[0, 0, 0, 1])
         
         # 6. Attach mocap target
-        self._arena.attach_mocap(pos=[-0.5, 0, 1.2], quat=[0, 0, 0, 1])
+        self._arena.attach_mocap(pos=[-0.5, 0, 0.3], quat=[0, 0, 0, 1])
 
         # 7. Convert full MjSpec to XML, then to MjModel
+        with open("ur5e_env_generated.xml", "w") as f:
+            f.write(self._arena.mjcf_model.to_xml())
         self._model = self._arena.mjcf_model.compile()
         self._data = mujoco.MjData(self._model)
 
@@ -63,7 +66,7 @@ class UR5eEnv(gym.Env):
             model=self._model,
             data=self._data,
             joints=self._arm.joints,
-            eef_site=self._arm.eef_site,
+            eef_site="gripper/pinch",
             min_effort=-150.0,
             max_effort=150.0,
             kp=200,
@@ -194,4 +197,5 @@ class UR5eEnv(gym.Env):
         """
         if self._viewer is not None:
             self._viewer.close()
+
 
