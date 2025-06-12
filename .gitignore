@@ -1,0 +1,10 @@
+**/__pycache__/
+*.cpython-311
+
+manipulator_mujoco.egg-info/
+
+manipulator_mujoco/__pycache__/__init__.cpython-311.pyc
+manipulator_mujoco/__pycache__/__init__.cpython-311.pyc
+manipulator_mujoco/arenas/__pycache__/__init__.cpython-311.pyc
+manipulator_mujoco/arenas/__pycache__/standard.cpython-311.pyc
+manipulator_mujoco/controllers/__pycache__/operational_space_controller.cpython-311.pyc

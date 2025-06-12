@@ -125,7 +125,7 @@ class UR5eEnv(gym.Env):
 
         mujoco.mj_forward(self._model, self._data)
 
-        self._target.set_mocap_pose(self._data, position=[-0.5, 0, 1.2], quaternion=[-1, 1, 0, 0])
+        self._target.set_mocap_pose(self._data, position=[-0.5, 0, 0.3], quaternion=[-1, 1, 0, 0])
         return self._get_obs(), self._get_info()
 
     def step(self, action: np.ndarray) -> tuple:

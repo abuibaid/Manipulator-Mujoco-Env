@@ -1,7 +1,7 @@
 
-from mujoco import MjSpec
-import mujoco
+import mujoco as mj
 import os
+
 class StandardArena(object):
     def __init__(self):
         """
@@ -10,7 +10,7 @@ class StandardArena(object):
         """
         # self._mjcf_model = MjSpec()
         xml_path = os.path.join(os.path.dirname(__file__), "../assets/world/world.xml")
-        self._mjcf_model = MjSpec.from_file(xml_path)
+        self._mjcf_model = mj.MjSpec.from_file(xml_path)
         # # World options
         # self._mjcf_model.option.timestep = 0.002
 
@@ -56,7 +56,7 @@ class StandardArena(object):
         self._robot_mount = None  # Where robot will be attached
         self._mocap_target = None
 
-    def attach_robot(self, robot_spec: MjSpec, pos=[0, -0.145, 0.97], quat=[0.7071, 0, 0, -0.7071]):
+    def attach_robot(self, robot_spec: mj.MjSpec, pos=[0, 0, 0], quat=[0.7071, 0, 0, -0.7071]):
         site = self._mjcf_model.worldbody.add_site(
         name="robot_attachment_site",
         pos=pos,
@@ -67,7 +67,7 @@ class StandardArena(object):
         self._mjcf_model.attach(robot_spec, site=site)
         self._robot_mount = site.parent
 
-    def attach_gripper(self, gripper_spec: MjSpec, pos=[0, 0, 0], quat=[0, 0, 0, 1]):
+    def attach_gripper(self, gripper_spec: mj.MjSpec, pos=[0, 0, 0], quat=[0, 0, 0, 1]):
         """
         Attaches a gripper MJCF model to the robot end-effector.
         """
@@ -80,7 +80,7 @@ class StandardArena(object):
             pos=pos,
             quat=quat,
             size=[0.001, 0.001, 0.001],
-            type=mujoco.mjtGeom.mjGEOM_SPHERE,  # optional visual marker
+            type=mj.mjtGeom.mjGEOM_SPHERE,  # optional visual marker
         )
 
         # Attach the gripper MJCF using the site
@@ -97,7 +97,7 @@ class StandardArena(object):
             quat=quat,
         )
         mocap_body.add_geom(
-            type=mujoco.mjtGeom.mjGEOM_SPHERE,
+            type=mj.mjtGeom.mjGEOM_SPHERE,
             size=[0.02, 0.02, 0.02],  # must be 3D vector
             rgba=[1, 0, 0, 1],
             contype=0,
@@ -107,5 +107,5 @@ class StandardArena(object):
 
 
     @property
-    def mjcf_model(self) -> MjSpec:
+    def mjcf_model(self) -> mj.MjSpec:
         return self._mjcf_model
