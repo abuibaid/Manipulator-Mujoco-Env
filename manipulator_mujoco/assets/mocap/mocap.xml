@@ -1,9 +1,0 @@
-<mujoco model="mocap">
-
-    <worldbody>
-        <body mocap="true" name="target" pos="0 0 0" quat="1 0 0 0">
-            <geom type="box" size="0.015 0.015 0.015"  rgba="1 0 0 0.2"  conaffinity="0"   contype="0"  />
-        </body>
-    </worldbody>
-
-</mujoco>

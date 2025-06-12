@@ -54,8 +54,8 @@ class UR5eEnv(gym.Env):
         self._arena.attach_mocap(pos=[-0.5, 0, 0.3], quat=[0, 0, 0, 1])
 
         # 7. Convert full MjSpec to XML, then to MjModel
-        with open("ur5e_env_generated.xml", "w") as f:
-            f.write(self._arena.mjcf_model.to_xml())
+        # with open("ur5e_env_generated.xml", "w") as f:
+        #     f.write(self._arena.mjcf_model.to_xml())
         self._model = self._arena.mjcf_model.compile()
         self._data = mujoco.MjData(self._model)
 

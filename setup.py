@@ -9,7 +9,6 @@ setup(
         "manipulator_mujoco": [
             "assets/robots/**/*",
             "assets/world/**/*",# Add other asset patterns as needed
-            "assets/mocap/**/*",# Add other asset patterns as needed
         ],
     },
     install_requires=[

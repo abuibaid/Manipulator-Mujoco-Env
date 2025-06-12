@@ -11,46 +11,6 @@ class StandardArena(object):
         # self._mjcf_model = MjSpec()
         xml_path = os.path.join(os.path.dirname(__file__), "../assets/world/world.xml")
         self._mjcf_model = mj.MjSpec.from_file(xml_path)
-        # # World options
-        # self._mjcf_model.option.timestep = 0.002
-
-        #        # Add texture and material
-        # checker_tex = self._mjcf_model.add_texture(
-        #     name="checker",
-        #     type=mujoco.mjtTexture.mjTEXTURE_2D,
-        #     builtin=mujoco.mjtBuiltin.mjBUILTIN_CHECKER,
-        #     width=300,
-        #     height=300,
-        #     rgb1=[0.2, 0.3, 0.4],
-        #     rgb2=[0.3, 0.4, 0.5],
-        # )
-
-        # grid_mat = self._mjcf_model.add_material(
-        #     name="grid",
-        #     texrepeat=[5, 5],
-        #     reflectance=0.2,
-        # ).textures[mujoco.mjtTextureRole.mjTEXROLE_RGB] = checker_tex.name
-
-        # # Add floor geom
-        # self._mjcf_model.worldbody.add_geom(
-        #     name="floor",
-        #     type=mujoco.mjtGeom.mjGEOM_PLANE,
-        #     size=[2, 2, 0.1],
-        #     material="grid",
-        # )
-
-        # # Add lights
-        # self._mjcf_model.worldbody.add_light(
-        #     name="light1",
-        #     pos=[-2, -1, 3],
-        #     dir=[2, 1, -2],
-        # )
-
-        # self._mjcf_model.worldbody.add_light(
-        #     name="light2",
-        #     pos=[2, -1, 3],
-        #     dir=[-2, 1, -2],
-        # )
 
         # Prepare reference handles for attachment
         self._robot_mount = None  # Where robot will be attached
